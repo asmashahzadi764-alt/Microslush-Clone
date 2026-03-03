@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microslush</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background: white;
+    color: #333;
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: bold;
+    color: #1A61FF;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: white;
+    min-width: 220px;
+    display: none;
+    padding: 10px 0;
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+}
+
+.dropdown-menu li a:hover {
+    background: #f2f2f2;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* ===== HERO ===== */.hero {
+    background: url("image 1.webp") no-repeat center center/cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: white;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 80px;
+    position: relative;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #1A61FF;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.stats {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    color: black;
+}
+
+.stat {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat h2 {
+    font-size: 32px;
+    color: #0640be;
+}
+
+.services {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 10px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-bottom: 1px solid black;
+}
+
+.services__content {
+    flex: 1;
+}
+
+.services__title {
+    color: #6754e2;
+    font-size: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.services__title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 2px;
+    background: #6754e2;
+}
+
+.services__heading {
+    font-size: 32px;
+    color: #2f3534;
+    margin-bottom: 20px;
+}
+
+.services__description {
+    color: #636968;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.services__image {
+    flex: 1;
+}
+
+.services__image img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.services__1 {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.services h2 {
+    margin-bottom: 30px;
+}
+
+.services-grid {
+    display: grid;
+    padding: 20px 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.services-color {
+    color: #6754e2;
+}
+
+.service-box {
+    border: 1px solid #d1d1d1;
+    padding: 22px;
+    background: white;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;          
+    border-radius: 6px;
+}
+
+.service-box__img {
+    width: 30px;               
+    height: 30px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    display: block;            
+}
+
+footer {
+    background: #fcf9f9;
+    color: rgb(21, 21, 21);
+    padding: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    gap: 30px;
+}
+
+footer h4 {
+    margin-bottom: 15px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+}
+
+footer ul li a {
+    color: rgb(16, 15, 15);
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: #00bcd4;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="navbar">
+    <div class="logo">Microslush</div>
+
+    <ul class="nav-links">
+
+        <li><a href="#">Home</a></li>
+
+        <!-- SERVICES -->
+        <li class="dropdown">
+            <a href="#">Services ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Desktop Software Developer</a></li>
+                <li><a href="#">App Developer</a></li>
+                <li><a href="#">Web Developer</a></li>
+            </ul>
+        </li>
+
+    
+        <li class="dropdown">
+            <a href="#">Hire Developer ▾</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Full Stack Developer</a></li>
+                <li><a href="#">MERN Stack Developer</a></li>
+                <li><a href="#">Django Developer</a></li>
+                <li><a href="#">Java Developer</a></li>
+                <li><a href="#">PHP Developer</a></li>
+                <li><a href="#">Node JS Developer</a></li>
+            </ul>
+        </li>
+
+        <li><a href="#">Blog</a></li>
+        <li><a href="#" class="btn">Contact Us</a></li>
+
+    </ul>
+</div>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Agile<br> Methodology</h1>
+<p>
+We turn your stories to efficient, secure and user friendly<br>software 
+and provide robust solutions to meet enterprise<br> demands.
+</p>
+<a href="#" class="btn">Contact Us</a>
+</div>
+</section>
+
+
+<section class="stats">
+<div class="stat"><h2>600+</h2><p>Clients</p></div>
+<div class="stat"><h2>6+</h2><p>Years Experience</p></div>
+<div class="stat"><h2>50+</h2><p>Global Partners</p></div>
+</section>
+
+<section class="services container">
+  <div class="services__content">
+    <h2 class="services__title">Services</h2>
+    <h3 class="services__heading">We Build Software To Solve Modern Problems</h3>
+    <p class="services__description">
+      Enhance your enterprise under the light of modern technology. We provide
+      optimum solutions meeting the latest demands of your enterprise, developed
+      by the professionals in a friendly environment.
+    </p>
+    <br>
+    <a href="#" class="btn">Let's talk</a>
+  </div>
+
+  <div class="services__image">
+    <img src="image 2.jpg" alt="Services Image" />
+  </div>
+</section>
+
+
+<section class="services__1">
+  <h2>Services We <span class="services-color">Offer</span></h2>
+
+  <div class="services-grid">
+
+    <div class="service-box">
+      <img src="https://microslush.com/wp-content/uploads/2022/08/image-14.png" class="service-box__img" alt="Web Development">
+      <strong>Web Development</strong><br>
+      We provide skillful software engineering to the full spectrum of technologies from simple frontend prototyping to the high-performing sites.
+    </div>
+
+    <div class="service-box">
+      <img src="https://microslush.com/wp-content/uploads/2022/08/image-13.png" class="service-box__img" alt="Mobile Development">
+      <strong>Mobile Development</strong><br>
+      For the past decade, we have been creating high performance, feature-packed applications that will meet all your expectations. 
+    </div>
+
+    <div class="service-box">
+      <img src="https://microslush.com/wp-content/uploads/2022/08/image-17.png" class="service-box__img" alt="Trading">
+      <strong>Trading</strong><br>
+      Our core expertise is to program autotrading bots with zero error & high accuracy so that you can enjoy vacations & earn money at the same time.
+    </div>
+
+    <div class="service-box">
+      <img src="https://microslush.com/wp-content/uploads/2022/08/image-12.png" class="service-box__img" alt="Custom Software">
+      <strong>Custom Software</strong><br>
+      We develop customized software with a business-centric approach, fulfilling your business needs with greater scalability, reliability, support & maintenance.
+    </div>
+
+    <div class="service-box">
+      <img src="https://microslush.com/wp-content/uploads/2022/10/image-42.webp" class="service-box__img" alt=".NET">
+      <strong>.NET</strong><br>
+      Optimized .NET solutions developed by professionals and implemented by modern frameworks. We’re providing .NET services to the enterprise since 2021.
+    </div>
+
+    <div class="service-box">
+      <img src="https://microslush.com/wp-content/uploads/2022/08/image-18.png" 
+       class="service-box__img" 
+       alt="Blockchain">
+      <strong>Blockchain</strong><br>
+      Developing powerful software solutions with blockchain, enhancing efficiency, productivity, and security with centralized and decentralized choices.
+    </div>
+
+  </div>
+</section>
+
+<footer>
+<div class="footer-grid">
+<div>
+<h4>Services</h4>
+<ul>
+<li><a href="#">Web Development</a></li>
+<li><a href="#">Mobile Development</a></li>
+<li><a href="#">Trading App</a></li>
+<li><a href="#">E comerece Platform</a></li>
+</ul>
+</div>
+
+<div>
+<h4>Company</h4>
+<ul>
+<li><a href="#">About</a></li>
+<li><a href="#">Contact</a></li>
+<li><a href="#">Blog</a></li>
+</ul>
+</div>
+
+<div>
+<h4>Contact</h4>
+<p>Email: info@microslush.com</p>
+<p>+92 321 1307287</p>
+</div>
+</div>
+
+<div class="copyright">
+© Microslush 2022 All rights reserved.
+</div>
+</footer>
+
+</body>
+</html>
